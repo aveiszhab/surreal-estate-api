@@ -22,8 +22,9 @@ app.options('*', cors());
 app.use(bodyParser.json());
 app.use(methodOverride());
 
+console.log()
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true, useUnifiedTopology: true, });
 
-mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true });
 
 restify.serve(router, PropertyListingModel);
 restify.serve(router, FavouriteModel);
